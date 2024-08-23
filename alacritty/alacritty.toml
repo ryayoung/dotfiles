@@ -47,15 +47,16 @@ size = 14
 # style = "Italic"
 
 [font.normal]
-family = "MesloLGS NF"
+# family = "MesloLGS NF"
+family = "MesloLGS Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "MesloLGS NF"
+family = "MesloLGS Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "MesloLGS NF"
+family = "MesloLGS Nerd Font"
 style = "Italic"
 
 [font.offset]
