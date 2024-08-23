@@ -10,6 +10,10 @@
 !brew/
 !brew/leaves.txt
 
+!git/
+!git/ignore
+!git/base_config
+
 !nvim/
 !nvim/*
 !nvim/lua/
