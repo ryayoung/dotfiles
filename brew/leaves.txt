@@ -11,7 +11,7 @@ koekeishiya/formulae/skhd
 koekeishiya/formulae/yabai
 lsd
 mongosh
-neovide
+neovim
 powerlevel10k
 pyenv-virtualenv
 redis
