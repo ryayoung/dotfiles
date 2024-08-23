@@ -1,0 +1,126 @@
+# Enable p10k instant prompt. Stay close to the top of ~/.zshrc. Init code that
+# may require console input must go above this block; everything else may go below.
+source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+
+# export ZSH="$HOME/.oh-my-zsh"
+# source $ZSH/oh-my-zsh.sh
+setopt alwaystoend
+setopt autocd
+setopt autopushd
+setopt completeinword
+setopt extendedhistory
+setopt noflowcontrol
+setopt histexpiredupsfirst
+setopt histignoredups
+setopt histignorespace
+setopt histverify
+setopt interactivecomments
+setopt longlistjobs
+setopt pushdignoredups
+setopt pushdminus
+setopt sharehistory
+
+# Lazy load pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PATH"
+function pyenv() {
+    unset -f pyenv
+    eval "$(command pyenv init -)"
+    # eval "$(command pyenv virtualenv-init -)"
+    pyenv $@
+}
+
+# ABBREV DIRECTORIES ---------------------------------------------------------
+# VIM KEYBINDING
+bindkey -v
+bindkey "^R" history-incremental-search-backward
+
+# ALIASES --------------------------------------------------------------------
+# OH MY ZSH ------------------------
+alias -- -='cd -'
+alias ...='../..'
+alias ....='../../..'
+alias diff='diff --color'
+alias ack='ack -i'
+alias afind='ack -l'
+alias md='mkdir -p'
+alias rd='rmdir'
+
+# GENERAL --------------------------
+# alias sql="export PYTHONWARNINGS='ignore';litecli"
+# alias open="open -R ."
+alias c="clear"
+alias pyv="pypath && nvim"
+alias v="nvim"
+alias b="brew"
+alias g="git"
+alias zrc="v ~/.config/zsh/.zshrc"
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+alias grepf='grep -F'
+alias lsd='lsd --group-dirs first'
+alias ls='lsd'
+alias l='ls -lh'
+alias la='ls -lAh'
+alias la.='ls -lAh | awk "\$9 ~ /^\./"'
+alias lsa='ls -a'
+alias t='lsd --tree --ignore-glob __pycache__ --ignore-glob node_modules --ignore-glob "*.br" --ignore-glob "*.gz"'
+alias n='echo "\n\n––––––––––––––––––––––––––––––––––\n\n"'
+alias path='echo $PATH | tr ":" "\n"'
+alias black='black --skip-string-normalization'
+
+# TMUX -----------------------------
+alias tm="tmux"
+alias tma="tmux a"
+# alias tmat="tmux a -t"
+alias tmnew="tmux new -s"
+# alias tmrc="v ~/.config/tmux/tmux.conf"
+alias tmls="tmux ls"
+
+# PYTHON --------------------------
+alias py="python"
+alias pe="pyenv"
+# alias pv="pyenv versions | grep -v '/envs/'"
+alias pev="pyenv virtualenv"
+alias pevd="pyenv virtualenv-delete"
+alias act="pyenv activate"
+alias pipi="pip install"
+alias pipclear="pip freeze | xargs pip uninstall -y"
+
+# DIRECTORIES ---------------------
+alias .conf="cd ~/.config"
+alias .v="cd ~/.config/nvim && v"
+alias .desk="cd ~/Desktop"
+
+# PyPI --------------------------
+# alias pyupload="rm -r dist; hatchling build; twine upload dist/*"
+# alias testpyupload="rm -r dist; py -m build; twine upload --repository testpypi dist/*"
+# alias gtestpyget="py -m pip install --index-url https://test.pypi.org/simple/ --no-deps --upgrade"
+# alias testpyget="pip install --index-url https://test.pypi.org/simple/ --no-deps --upgrade"
+
+export EDITOR=nvim
+export TERM=alacritty
+export BAT_THEME="Coldark-Dark"
+export KEYTIMEOUT=1
+
+
+# FZF -------------------------------------------------------------------------
+export FZF_COMPLETION_TRIGGER='--'
+export FZF_DEFAULT_COMMAND='fd --type f --exclude .js.br --exclude .js.gz'
+# Customize fzf completion for paths (used by vim **<Tab>)
+_fzf_compgen_path() {
+  fd --exclude .js.br --exclude .js.gz . "$1"
+}
+# Customize fzf completion for directories (used by cd **<Tab>)
+_fzf_compgen_dir() {
+  fd --type d --exclude .js.br --exclude .js.gz . "$1"
+}
+source <(fzf --zsh)
+
+
+# ZSH PLUGINS -----------------------------------------------------------------
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# This must be at the end
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -38,7 +38,9 @@
 !yabai/yabairc
 
 !zsh/
-!zsh/zshrc
+!zsh/.zshrc
+!zsh/.zprofile
+!zsh/base_zshenv
 
 
 # BLACKLIST
