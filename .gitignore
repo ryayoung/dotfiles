@@ -7,6 +7,9 @@
 !alacritty/
 !alacritty/alacritty.toml
 
+!brew/
+!brew/leaves.txt
+
 !nvim/
 !nvim/*
 !nvim/lua/
