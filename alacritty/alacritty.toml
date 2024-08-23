@@ -1,0 +1,133 @@
+[colors.bright]
+black = "#414868"
+blue = "#7AA2F7"
+cyan = "#7DCFFF"
+green = "#9ECE6A"
+magenta = "#BB9AF7"
+red = "#F7768E"
+white = "#C0CAF5"
+yellow = "#E0AF68"
+
+[colors.cursor]
+cursor = "#C0CAF5"
+text = "#24283B"
+
+[colors.normal]
+black = "#1D202F"
+# blue = "#3D59A1"
+blue = "#7AA2F7"
+cyan = "#7DCFFF"
+green = "#BB9AF7"
+magenta = "#BB9AF7"
+red = "#F7768E"
+white = "#A9B1D6"
+yellow = "#E0AF68"
+
+[colors.primary]
+background = "#24283B"
+foreground = "#C0CAF5"
+
+[env]
+TERM = "alacritty"
+# TERM = "xterm-256color"
+
+[font]
+size = 14
+
+# [font.normal]
+# family = "Monaspace Xenon"
+# style = "Light"
+#
+# [font.bold]
+# family = "Monaspace Xenon"
+# style = "Bold"
+#
+# [font.italic]
+# family = "Monaspace Xenon"
+# style = "Italic"
+
+[font.normal]
+family = "MesloLGS NF"
+style = "Regular"
+
+[font.bold]
+family = "MesloLGS NF"
+style = "Bold"
+
+[font.italic]
+family = "MesloLGS NF"
+style = "Italic"
+
+[font.offset]
+x = 1
+y = 4
+
+[font.glyph_offset]
+x = 0
+y = 2
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002"
+key = "O"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002x"
+key = "X"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002d"
+key = "D"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = """
+tma
+"""
+key = "D"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002h"
+key = "H"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002j"
+key = "J"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002k"
+key = "K"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002l"
+key = "L"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollHalfPageUp"
+key = "PageUp"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollHalfPageDown"
+key = "PageDown"
+mode = "~Alt"
+mods = "Shift"
+
+[shell]
+program = "/bin/zsh"
+args = ["--login"]
+
+[window]
+decorations = "Buttonless"

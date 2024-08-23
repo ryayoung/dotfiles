@@ -1,0 +1,39 @@
+# Ignore everything, first
+*
+
+# WHITELIST
+!.gitignore
+
+!alacritty/
+!alacritty/alacritty.toml
+
+!nvim/
+!nvim/*
+!nvim/lua/
+!nvim/lua/*
+!nvim/lua/core/
+!nvim/lua/core/*
+!nvim/lua/plugin/
+!nvim/lua/plugin/*
+!nvim/lua/vim/
+!nvim/lua/vim/*
+!nvim/lua/plugin/setup/
+!nvim/lua/plugin/setup/*
+
+!skhd/
+!skhd/skhdrc
+!skhd/yabaimacro.sh
+
+!tmux/
+!tmux/tmux.conf
+
+!yabai/
+!yabai/yabairc
+
+!zsh/
+!zsh/zshrc
+
+
+# BLACKLIST
+.DS_Store
+node_modules
