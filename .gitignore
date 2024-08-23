@@ -8,7 +8,7 @@
 !alacritty/alacritty.toml
 
 !brew/
-!brew/leaves.txt
+!brew/*
 
 !git/
 !git/ignore
