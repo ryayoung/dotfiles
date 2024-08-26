@@ -1,17 +1,29 @@
+-- Set leader key to space
+-- Now, "<leader>" in key mappings will be treated as " "
 vim.g.mapleader = " "
 
+------------------------------------------------------------------------------------------------------
+-- HELPER FUNCTIONS TO CONCISELY DEFINE KEY MAPPINGS -------------------------------------------------
+------------------------------------------------------------------------------------------------------
+-- Define normal mode mapping
 local function n(keys, exec, options)
 	return vim.keymap.set("n", keys, exec, options)
 end
+-- Define insert-mode mapping
 local function i(keys, exec, options)
 	return vim.keymap.set("i", keys, exec, options)
 end
+-- Define visual-mode mapping
 local function v(keys, exec, options)
 	return vim.keymap.set("v", keys, exec, options)
 end
+-- Define normal mode mapping that starts with leader key.
+-- For example, `nlr("t", "...")` is equivalent to `n("<leader>t", "...")`
 local function nlr(keys, exec, options)
 	return n("<leader>" .. keys, exec, options)
 end
+-- Define visual mode mapping that starts with leader key.
+-- For example, `vlr("t", "...")` is equivalent to `v("<leader>t", "...")`
 local function vlr(keys, exec, options)
 	return v("<leader>" .. keys, exec, options)
 end
@@ -56,7 +68,7 @@ nlr("p", '"+p')
 -- Bring next element after comma down vertically
 nlr("d", "f,wi<CR><Esc>l")
 
--- Clear search
+-- Clear search highlighters
 nlr("l", ":nohl<CR>")
 
 -- Previous file
@@ -172,11 +184,10 @@ nlr("gfc", blt.git_bcommits) -- list git commits for current file/buffer (use <c
 nlr("gb", blt.git_branches) -- list git branches (use <cr> to checkout) ["gb" for git branch]
 nlr("gs", blt.git_status) -- list current changes per file with diff preview ["gs" for git status]
 
--- LSP
+-- To toggle showing LSP diagnostics means to toggle showing the virtual text
+-- that's overlayed over your code with the error/warning messages.
 nlr("gh", ":lua ToggleShowDiag()<CR>")
-
 ShowDiagnostics = true
-
 function ToggleShowDiag()
 	if ShowDiagnostics then
 		ShowDiagnostics = false
@@ -188,8 +199,8 @@ function ToggleShowDiag()
 	-- vim.diagnostic.config({ virtual_text = ShowDiagnostics })
 end
 
+-- Run autoformatter for the current buffer, if a language-specific formatter exists.
 nlr("z", ":lua FormatWithNullLS()<CR>")
-
 function FormatWithNullLS()
 	vim.lsp.buf.format({
 		filter = function(client)

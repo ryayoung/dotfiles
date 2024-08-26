@@ -37,8 +37,8 @@ opt.cindent = true
 opt.wrap = false
 
 -- search settings
-opt.ignorecase = true -- all seaches are case INsensitive
-opt.smartcase = true -- when this and ignorecase are enabled, search is case sensitive unless you use uppercase letters
+opt.ignorecase = true -- all searches are case INsensitive
+opt.smartcase = true -- searches BECOME case sensitive only if you use mixed case
 
 -- appearance
 opt.background = "dark"
@@ -57,7 +57,7 @@ opt.splitbelow = true
 -- opt.iskeyword:append("-") -- 'cw' will delete dash separated word
 
 opt.hlsearch = true -- highlight search
-opt.incsearch = true
+opt.incsearch = true -- highlighting happens incrementally, as you type
 
 opt.scrolloff = 8 -- start scrolling when you're x lines from top
 -- opt.hidden = false -- prevent unsaved buffers from being hidden
@@ -102,6 +102,7 @@ opt.scrolloff = 8 -- start scrolling when you're x lines from top
 
 
 
+-- I do not remember what this does.
 opt.listchars = {
     tab = ">-",        -- Set the character(s) displayed for a tab
     space = "␣",       -- Set the character displayed for a space
