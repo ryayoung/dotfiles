@@ -18,27 +18,27 @@ end
 
 require("nvim-tree").setup({
     on_attach = on_attach,
-	renderer = {
-		icons = {
-			glyphs = {
-				folder = {
-					arrow_closed = "",
-					arrow_open = "",
-				},
-			},
+    renderer = {
+        icons = {
+            glyphs = {
+                folder = {
+                    arrow_closed = "",
+                    arrow_open = "",
+                },
+            },
             show = {
                 folder = false,
                 file = false,
             },
-		},
-	},
-	actions = {
-		open_file = {
-			window_picker = {
-				enable = false,
-			},
-		},
-	},
+        },
+    },
+    actions = {
+        open_file = {
+            window_picker = {
+                enable = false,
+            },
+        },
+    },
     filters = {
         git_ignored = false,
         custom = {".DS_Store", "__pycache__", "node_modules", "*.git", "*.br", "*.gz"},

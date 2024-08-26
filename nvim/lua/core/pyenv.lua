@@ -6,12 +6,12 @@ handle = vim.loop.spawn("sh", {
     args = {"-c", 'eval "$(command pyenv init -)" && pyenv version-name'},
     stdio = {nil, stdout, stderr}
 }, function(code, signal)
-    stdout:read_stop()
-    stderr:read_stop()
-    stdout:close()
-    stderr:close()
-    handle:close()
-end)
+        stdout:read_stop()
+        stderr:read_stop()
+        stdout:close()
+        stderr:close()
+        handle:close()
+    end)
 
 stdout:read_start(function(err, data)
     if err then
