@@ -66,7 +66,7 @@ nlr("y", '"+y')
 nlr("p", '"+p')
 
 -- Bring next element after comma down vertically
-nlr("d", "f,wi<CR><Esc>l")
+nlr("d", "f,lxi<CR><Esc>0")
 
 -- Clear search highlighters
 nlr("l", ":nohl<CR>")
