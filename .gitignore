@@ -39,6 +39,7 @@
 
 !zsh/
 !zsh/.zshrc
+!zsh/.zshenv
 !zsh/.zprofile
 !zsh/base_zshenv
 
