@@ -8,4 +8,5 @@ require("colorizer").setup({
     'svg';
     'html';
     'toml';
+    'json';
 }, { css = true; });
