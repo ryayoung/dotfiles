@@ -40,7 +40,7 @@ return packer.startup(function(use)
     })
 
     use("jeetsukumaran/vim-pythonsense")  -- Text objects for python classes, functions, etc.
-    -- use("norcalli/nvim-colorizer.lua")  -- Colorize color codes in files
+    use("norcalli/nvim-colorizer.lua")  -- Colorize color codes in files
     use("karb94/neoscroll.nvim") -- good scrolling function
     use({"ColinKennedy/toggle-lsp-diagnostics.nvim", branch="feature/disable_per_buffer"})
     -- use('ThePrimeagen/harpoon')
