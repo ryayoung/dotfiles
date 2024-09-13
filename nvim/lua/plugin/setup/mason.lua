@@ -13,7 +13,7 @@ mason_lspconfig.setup({
         "golangci_lint_ls",
         "svelte",
         "pyright",
-        "tsserver",
+        "ts_ls",
         "html",
         "cssls",
         "tailwindcss",
