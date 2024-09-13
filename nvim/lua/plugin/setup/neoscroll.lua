@@ -1,8 +1,9 @@
- 
-require('neoscroll').setup({
+local neoscroll = require('neoscroll')
+
+neoscroll.setup({
     -- All these keys will be mapped to their corresponding default scrolling animation
-    mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
-        '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+    -- mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
+    --     '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
     hide_cursor = true,          -- Hide cursor while scrolling
     stop_eof = false,             -- Stop at <EOF> when scrolling downwards
     respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
@@ -14,19 +15,18 @@ require('neoscroll').setup({
     -- CUSTOM
 })
 
-local t = {}
--- Syntax: t[keys] = {function, {function arguments}}
-t['<C-u>'] = {'scroll', {'-0.30', 'true', '150', 'sine', [['M']]}}
-t['<C-d>'] = {'scroll', { '0.30', 'true', '150', 'sine', [['M']]}}
--- t['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '150', 'sine', [['M']]}}
--- t['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '150', 'sine', [['M']]}}
-t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
-t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
-t['<C-y>'] = {'scroll', {'-0.10', 'false', '100'}}
-t['<C-e>'] = {'scroll', { '0.10', 'false', '100'}}
-t['zt']    = {'zt', {'250'}}
--- t['zz']    = {'zz', {'250'}}
-t['zb']    = {'zb', {'250'}}
-
-require('neoscroll.config').set_mappings(t)
-
+local keymap = {
+  ["<C-u>"] = function() neoscroll.ctrl_u({ duration = 150, info = 'M' }) end;
+  ["<C-d>"] = function() neoscroll.ctrl_d({ duration = 150, info = 'M' }) end;
+  ["<C-b>"] = function() neoscroll.ctrl_b({ duration = 300 }) end;
+  ["<C-f>"] = function() neoscroll.ctrl_f({ duration = 300 }) end;
+  ["<C-y>"] = function() neoscroll.scroll(-0.1, { duration = 100 }) end;
+  ["<C-e>"] = function() neoscroll.scroll(0.1, { duration = 100 }) end;
+  ["zt"]    = function() neoscroll.zt({ half_win_duration = 200 }) end;
+  ["zz"]    = function() neoscroll.zz({ half_win_duration = 200 }) end;
+  ["zb"]    = function() neoscroll.zb({ half_win_duration = 200 }) end;
+}
+local modes = { 'n', 'v', 'x' }
+for key, func in pairs(keymap) do
+  vim.keymap.set(modes, key, func)
+end
