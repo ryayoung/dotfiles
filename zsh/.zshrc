@@ -30,10 +30,31 @@ function pyenv() {
     pyenv $@
 }
 
+# WIDGETS --------------------------------------------------------------------
+tmux_navigate() {
+    [[ -n $TMUX ]] && tmux select-pane -$1 >/dev/null 2>&1
+}
+
+tmux_navigate_left()  { tmux_navigate L }
+tmux_navigate_down()  { tmux_navigate D }
+tmux_navigate_up()    { tmux_navigate U }
+tmux_navigate_right() { tmux_navigate R }
+
+zle -N tmux_navigate_left
+zle -N tmux_navigate_down
+zle -N tmux_navigate_up
+zle -N tmux_navigate_right
+
+
 # ABBREV DIRECTORIES ---------------------------------------------------------
 # VIM KEYBINDING
 bindkey -v
 bindkey "^R" history-incremental-search-backward
+bindkey '^H' tmux_navigate_left
+bindkey '^J' tmux_navigate_down
+bindkey '^K' tmux_navigate_up
+bindkey '^L' tmux_navigate_right
+
 
 # ALIASES --------------------------------------------------------------------
 # OH MY ZSH ------------------------
@@ -78,6 +99,7 @@ alias tmls="tmux ls"
 
 # PYTHON --------------------------
 alias py="python"
+alias pycp="PYTHONPATH=$PWD python"
 alias pe="pyenv"
 # alias pv="pyenv versions | grep -v '/envs/'"
 alias pev="pyenv virtualenv"
