@@ -31,7 +31,7 @@ function pyenv() {
 }
 
 # WIDGETS --------------------------------------------------------------------
-tmux_navigate() {
+function tmux_navigate() {
     [[ -n $TMUX ]] && tmux select-pane -$1 >/dev/null 2>&1
 }
 
@@ -55,8 +55,13 @@ bindkey '^J' tmux_navigate_down
 bindkey '^K' tmux_navigate_up
 bindkey '^L' tmux_navigate_right
 
+# FUNCTIONS -------------------------------------------------------------------
 
-# ALIASES --------------------------------------------------------------------
+function autobal() {
+    yabai -m config auto_balance $1
+}
+
+# ALIASES ---------------------------------------------------------------------
 # OH MY ZSH ------------------------
 alias -- -='cd -'
 alias ...='../..'
