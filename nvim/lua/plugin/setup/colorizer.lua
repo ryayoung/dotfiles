@@ -9,4 +9,6 @@ require("colorizer").setup({
     'html';
     'toml';
     'json';
+    'js';
+    'ts';
 }, { css = true; });
