@@ -88,9 +88,7 @@ key = "D"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = """
-tma
-"""
+chars = "tma\r"
 key = "D"
 mods = "Command|Shift"
 

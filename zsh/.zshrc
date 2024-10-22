@@ -45,9 +45,7 @@ zle -N tmux_navigate_down
 zle -N tmux_navigate_up
 zle -N tmux_navigate_right
 
-
-# ABBREV DIRECTORIES ---------------------------------------------------------
-# VIM KEYBINDING
+# BINDKEY ---------------------------------------------------------------------
 bindkey -v
 bindkey "^R" history-incremental-search-backward
 bindkey '^H' tmux_navigate_left
@@ -76,7 +74,6 @@ alias rd='rmdir'
 # alias sql="export PYTHONWARNINGS='ignore';litecli"
 # alias open="open -R ."
 alias c="clear"
-alias pyv="pypath && nvim"
 alias v="nvim"
 alias b="brew"
 alias g="git"
@@ -104,7 +101,7 @@ alias tmls="tmux ls"
 
 # PYTHON --------------------------
 alias py="python"
-alias pycp="PYTHONPATH=$PWD python"
+alias ppath="export PYTHONPATH=$PWD"
 alias pe="pyenv"
 # alias pv="pyenv versions | grep -v '/envs/'"
 alias pev="pyenv virtualenv"
@@ -131,7 +128,7 @@ export KEYTIMEOUT=1
 
 
 # FZF -------------------------------------------------------------------------
-export FZF_COMPLETION_TRIGGER='--'
+export FZF_COMPLETION_TRIGGER=';'
 export FZF_DEFAULT_COMMAND='fd --type f --exclude .js.br --exclude .js.gz'
 # Customize fzf completion for paths (used by vim **<Tab>)
 _fzf_compgen_path() {

@@ -14,6 +14,7 @@ alt - h : ~/.config/skhd/yabaimacro.sh focus_window west
 alt - j : ~/.config/skhd/yabaimacro.sh focus_window south
 alt - k : ~/.config/skhd/yabaimacro.sh focus_window north
 alt - l : ~/.config/skhd/yabaimacro.sh focus_window east
+alt - o : ~/.config/skhd/yabaimacro.sh focus_display recent
 
 # Swap managed window
 alt + ctrl - h : ~/.config/skhd/yabaimacro.sh swap_window west
