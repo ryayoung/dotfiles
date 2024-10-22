@@ -88,6 +88,20 @@ lspconfig["ts_ls"].setup({
 lspconfig["cssls"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
+    settings = {
+        css = {
+            validate = true,
+            lint = {
+                unknownAtRules = "ignore",
+            }
+        },
+        scss = {
+            validate = true,
+            lint = {
+                unknownAtRules = "ignore",
+            }
+        }
+    }
 })
 -- end
 
@@ -97,6 +111,16 @@ lspconfig["tailwindcss"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
     filetypes = { "html", "css", "scss", "sass", "typescriptreact", "javascriptreact", "jsx", "tsx", "javascript", "typescript", "svelte"},
+    settings = {
+        tailwindCSS = {
+            experimental = {
+                classRegex = {
+                    "twt`([^`]*)",
+                    {"(?:tv|cn|twMerge|twJoin)\\(([^\\);]*)[\\);]", "[`'\"]([^'\"`,;]*)[`'\"]"},
+                }
+            },
+        }
+    }
 })
 -- end
 
