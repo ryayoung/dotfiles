@@ -90,6 +90,7 @@ alias t='lsd --tree --ignore-glob __pycache__ --ignore-glob node_modules --ignor
 alias n='echo "\n\n––––––––––––––––––––––––––––––––––\n\n"'
 alias path='echo $PATH | tr ":" "\n"'
 alias black='black --skip-string-normalization'
+alias ncu='npx npm-check-updates -u && npm install'
 
 # TMUX -----------------------------
 alias tm="tmux"
