@@ -56,7 +56,7 @@ nlr("Q", ":wqa")
 nlr("2", ":w<bar> :source %<CR>")
 
 -- Fold remove
-nlr("fr", [[:%s/# }}}$\|# {{{$//g<CR>]])
+-- nlr("fr", [[:%s/# }}}$\|# {{{$//g<CR>]])
 
 -- Open terminal
 nlr("//", ":terminal<CR>")
@@ -171,6 +171,7 @@ nlr("e", ":NvimTreeToggle<CR>", { silent = true })
 
 -- TELESCOPE
 local blt = require("telescope.builtin")
+nlr("fr", blt.resume, {})
 nlr("fn", blt.find_files, {}) -- Lists files in your current working directory, respects .gitignore
 nlr("fo", blt.oldfiles, {}) -- Lists previously open files
 nlr("fs", blt.live_grep, {}) -- Search for a string in your current working directory and get results live as you type, respects .gitignore
