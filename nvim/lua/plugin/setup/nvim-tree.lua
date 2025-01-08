@@ -41,6 +41,6 @@ require("nvim-tree").setup({
     },
     filters = {
         git_ignored = false,
-        custom = {".DS_Store", "__pycache__", "node_modules", "*.git", "*.br", "*.gz"},
+        custom = {".svelte-kit", ".DS_Store", "__pycache__", "node_modules", "*.git", "*.br", "*.gz"},
     }
 })
