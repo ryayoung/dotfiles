@@ -65,7 +65,7 @@ alias -- -='cd -'
 alias ...='../..'
 alias ....='../../..'
 alias diff='diff --color'
-alias ack='ack -i'
+alias acki='ack -i'
 alias afind='ack -l'
 alias md='mkdir -p'
 alias rd='rmdir'
@@ -91,6 +91,7 @@ alias n='echo "\n\n––––––––––––––––––––�
 alias path='echo $PATH | tr ":" "\n"'
 alias black='black --skip-string-normalization'
 alias ncu='npx npm-check-updates -u && npm install'
+alias loaddotenv='set -a; source .env; set +a'
 
 # TMUX -----------------------------
 alias tm="tmux"

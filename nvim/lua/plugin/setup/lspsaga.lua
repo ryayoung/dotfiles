@@ -12,6 +12,9 @@ local settings = {
         scroll_up = "<C-b>",
     },
     finder = {
+        max_height = 0.6,
+        left_width = 0.3,
+        right_width = 0.6,
         edit = { "o", "<CR>" },
         vsplit = "s",
         split = "i",
