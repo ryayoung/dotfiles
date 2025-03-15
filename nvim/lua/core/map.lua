@@ -88,6 +88,40 @@ nlr(".cur", ":lcd %:p:h<CR>")
 -- Change GLOBAL working directory to current file
 nlr(".cg", ":cd %:p:h<CR>")
 
+-- COLOR COLUMN ---------------------------------
+
+local colorcolumn_width = 90
+local colorcolumn_visible = false
+local width_step = 10
+
+-- Toggle
+nlr('cc', function()
+    if colorcolumn_visible then
+        vim.opt.colorcolumn = ""
+        colorcolumn_visible = false
+    else
+        vim.opt.colorcolumn = tostring(colorcolumn_width)
+        colorcolumn_visible = true
+        print("colorcolumn=" .. colorcolumn_width)
+    end
+end)
+-- Decrement if visible
+nlr('c<', function()
+    if colorcolumn_visible then
+        colorcolumn_width = colorcolumn_width - width_step
+        vim.opt.colorcolumn = tostring(colorcolumn_width)
+        print("colorcolumn=" .. colorcolumn_width)
+    end
+end)
+-- Increment if visible
+nlr('c>', function()
+    if colorcolumn_visible then
+        colorcolumn_width = colorcolumn_width + width_step
+        vim.opt.colorcolumn = tostring(colorcolumn_width)
+        print("colorcolumn=" .. colorcolumn_width)
+    end
+end)
+
 ------------------------------------------------------------------------------------------------------
 -- NORMAL --------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------
