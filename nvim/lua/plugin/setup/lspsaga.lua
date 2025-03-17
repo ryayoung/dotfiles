@@ -1,3 +1,7 @@
+vim.diagnostic.config({
+  severity_sort = true,
+})
+
 local settings = {
     request_timeout = 2000,
     -- show_line_diagnostic = false,
