@@ -25,7 +25,7 @@ require("plugin.setup.colorizer") -- COLORIZER
 require("plugin.setup.mason") --
 require("plugin.setup.lspconfig") --
 require("plugin.setup.lspsaga") --
-require("plugin.setup.null-ls") --
+require("plugin.setup.none-ls") --
 
 require("core.map")
 
@@ -49,3 +49,7 @@ vim.cmd([[
     autocmd!
     autocmd BufLeave * silent! wall
 ]])
+
+vim.diagnostic.config({
+    virtual_text=true,
+})

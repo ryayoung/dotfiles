@@ -116,7 +116,7 @@ lspconfig["tailwindcss"].setup({
             experimental = {
                 classRegex = {
                     "tw`([^`]*)",
-                    {"(?:tv|cn|twMerge|twJoin)\\(([^\\);]*)[\\);]", "[`'\"]([^'\"`,;]*)[`'\"]"},
+                    {"(?:tv|cn|clsx|twMerge|twJoin)\\(([^\\);]*)[\\);]", "[`'\"]([^'\"`,;]*)[`'\"]"},
                 }
             },
         }
