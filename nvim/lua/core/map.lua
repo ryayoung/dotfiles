@@ -45,10 +45,6 @@ nlr('`', ':LspRestart<CR>')
 -- Close buffers
 nlr('.`', ':%bd|e#|bd#<CR>')
 
--- Use q macro
--- n("<C-M>", "@q")
-n("<CR>", "@q")
-
 -- Save, quit, source
 nlr("s", ":call TryWrite()<CR>", { silent = true })
 nlr("q", ":call SmartQuit()<CR>", { silent = true })
@@ -125,6 +121,10 @@ end)
 ------------------------------------------------------------------------------------------------------
 -- NORMAL --------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------
+
+-- Use q macro
+-- n("<C-M>", "@q")
+n("<CR>", "@q")
 
 -- Easier fold toggle
 n("zm", "za")
@@ -237,11 +237,18 @@ end
 -- Run autoformatter for the current buffer, if a language-specific formatter exists.
 nlr("z", ":lua FormatWithNullLS()<CR>")
 function FormatWithNullLS()
-	vim.lsp.buf.format({
-		filter = function(client)
-			return client.name == "null-ls"
-		end,
-	})
+    local current_filetype = vim.bo.filetype
+    local name_to_look_for = "null-ls"
+
+    if current_filetype == "python" then
+        name_to_look_for = "ruff"
+    end
+
+    vim.lsp.buf.format({
+        filter = function(client)
+            return client.name == name_to_look_for
+        end,
+    })
 end
 
 ------------------------------------------------------------------------------------

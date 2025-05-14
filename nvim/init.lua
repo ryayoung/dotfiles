@@ -8,7 +8,7 @@ vim.cmd("source ~/.config/nvim/lua/vim/run-python.vim")
 vim.cmd("source ~/.config/nvim/lua/vim/vim-core.vim")
 
 require("core.set")
-require("core.pyenv")
+-- require("core.pyenv")
 
 require("plugin.install")
 require("plugin.setup.tokyonight") -- COLORSCHEME

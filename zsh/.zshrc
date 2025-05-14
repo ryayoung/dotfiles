@@ -21,14 +21,15 @@ setopt pushdminus
 setopt sharehistory
 
 # Lazy load pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PATH"
-function pyenv() {
-    unset -f pyenv
-    eval "$(command pyenv init -)"
-    # eval "$(command pyenv virtualenv-init -)"
-    pyenv $@
-}
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/shims:$PATH"
+# function pyenv() {
+#     unset -f pyenv
+#     eval "$(command pyenv init -)"
+#     # eval "$(command pyenv virtualenv-init -)"
+#     pyenv $@
+# }
+export PATH="~/.local/bin:$PATH"
 
 # WIDGETS --------------------------------------------------------------------
 function tmux_navigate() {
@@ -89,7 +90,7 @@ alias lsa='ls -a'
 alias t='lsd --tree --ignore-glob __pycache__ --ignore-glob node_modules --ignore-glob "*.br" --ignore-glob "*.gz"'
 alias n='echo "\n\n––––––––––––––––––––––––––––––––––\n\n"'
 alias path='echo $PATH | tr ":" "\n"'
-alias black='black --skip-string-normalization'
+# alias black='black --skip-string-normalization'
 alias ncu='npx npm-check-updates -u && npm install'
 alias loaddotenv='set -a; source .env; set +a'
 
@@ -104,13 +105,13 @@ alias tmls="tmux ls"
 # PYTHON --------------------------
 alias py="python"
 alias ppath="export PYTHONPATH=$PWD"
-alias pe="pyenv"
+# alias pe="pyenv"
 # alias pv="pyenv versions | grep -v '/envs/'"
-alias pev="pyenv virtualenv"
-alias pevd="pyenv virtualenv-delete"
-alias act="pyenv activate"
-alias pipi="pip install"
-alias pipclear="pip freeze | xargs pip uninstall -y"
+# alias pev="pyenv virtualenv"
+# alias pevd="pyenv virtualenv-delete"
+alias act="source .venv/bin/activate"
+# alias pipi="pip install"
+# alias pipclear="pip freeze | xargs pip uninstall -y"
 
 # DIRECTORIES ---------------------
 alias .conf="cd ~/.config"
