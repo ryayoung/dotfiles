@@ -23,9 +23,9 @@ treesitter.setup({
     indent = {
         enable = true,
     },
-    context_commentstring = {
-        enable = true,
-    },
+    -- context_commentstring = {
+    --     enable = true,
+    -- },
     -- enable autotagging (w/ nvim-ts-autotag plugin)
     autotag = { enable = false },
     -- ensure these language parsers are installed
@@ -56,3 +56,8 @@ treesitter.setup({
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
 })
+
+require('ts_context_commentstring').setup({
+    enable = true
+})
+vim.g.skip_ts_context_commentstring_module = true

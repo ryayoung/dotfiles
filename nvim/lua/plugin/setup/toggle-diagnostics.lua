@@ -7,4 +7,4 @@ local settings = {
     -- },
 }
 
-require("toggle_lsp_diagnostics").init(settings)
+-- require("toggle_lsp_diagnostics").init(settings)
