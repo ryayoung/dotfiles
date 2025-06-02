@@ -26,6 +26,8 @@
 !nvim/lua/vim/*
 !nvim/lua/plugin/setup/
 !nvim/lua/plugin/setup/*
+!nvim/lua/plugin/specs/
+!nvim/lua/plugin/specs/*
 
 !skhd/
 !skhd/skhdrc
