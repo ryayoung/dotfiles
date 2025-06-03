@@ -84,6 +84,9 @@ nlr(".cur", ":lcd %:p:h<CR>")
 -- Change GLOBAL working directory to current file
 nlr(".cg", ":cd %:p:h<CR>")
 
+-- Markdown Table Mode (Kicamon/markdown-table-mode.nvim)
+nlr("i", ":Mtm<CR>")
+
 -- COLOR COLUMN ---------------------------------
 
 local colorcolumn_width = 90
