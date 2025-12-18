@@ -19,6 +19,9 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
+    rocks = {
+        enabled = false,
+    },
     spec = {
         -- Import all plugin specs
         { import = "plugin.specs" },

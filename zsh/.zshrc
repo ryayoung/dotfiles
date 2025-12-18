@@ -74,6 +74,8 @@ alias rd='rmdir'
 # GENERAL --------------------------
 # alias sql="export PYTHONWARNINGS='ignore';litecli"
 # alias open="open -R ."
+alias fdd='fd --type d'
+alias fdf='fd --type f'
 alias c="clear"
 alias v="nvim"
 alias b="brew"
@@ -91,7 +93,7 @@ alias t='lsd --tree --ignore-glob __pycache__ --ignore-glob node_modules --ignor
 alias n='echo "\n\n––––––––––––––––––––––––––––––––––\n\n"'
 alias path='echo $PATH | tr ":" "\n"'
 # alias black='black --skip-string-normalization'
-alias ncu='npx npm-check-updates -u && npm install'
+alias ncu='npx npm-check-updates -u'
 alias loaddotenv='set -a; source .env; set +a'
 
 # TMUX -----------------------------

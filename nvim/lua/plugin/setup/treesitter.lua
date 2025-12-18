@@ -30,6 +30,7 @@ treesitter.setup({
     autotag = { enable = false },
     -- ensure these language parsers are installed
     ensure_installed = {
+        "sql",
         "html",
         "css",
         "scss",
