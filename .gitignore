@@ -36,6 +36,8 @@
 # Directories
 !_setup/
 !_setup/*
+!_setup/scripts/
+!_setup/scripts/*
 # -----------------------------------------------------------------------------
 !alacritty/
 !alacritty/alacritty.toml
