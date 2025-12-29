@@ -1,0 +1,15 @@
+; Move to ~/.config/git/config, and edit + uncomment name/email under `[user]`
+; -----------------------------------------------------------------------------
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[user]
+    ; name = Ryan Young
+    ; email = 90723578+ryayoung@users.noreply.github.com
+[init]
+    defaultBranch = main
+[credential]
+    helper = osxkeychain

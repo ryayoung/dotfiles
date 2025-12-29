@@ -1,19 +1,48 @@
-# Ignore everything, first
+# This gitignore is special. It ignores everything by default, and then
+# explicitly un-ignores the files that should be tracked.
+# 
+# It follows 3 distinct steps:
+# 
+# 1. Ignore everything (*)
+# 2. Un-ignore specific files and directories (`!` patterns)
+# 3. Final blacklist to re-ignore unwanted filenames that may have been
+#    captured by step 2. This resembles a normal gitignore. e.g. `.DS_Store`.
+
+# #############################################################################
+# STEP 1: Ignore everything (*)
+# #############################################################################
+
 *
 
-# WHITELIST
+# #############################################################################
+# STEP 2: Un-ignore specific files and directories (`!` patterns)
+# 
+# - Use `!filename` to un-ignore a specific **root-level** file.
+# - It is NOT POSSIBLE to recursively un-ignore everything in a directory.
+# - First, un-ignore a directory itself, i.e. `!mydir/`. This is basically
+#   a no-op. It doesn't cause any files to be tracked, it's just a
+#   pre-requisite before un-ignoring anything inside.
+# - Then, you can EITHER:
+#   1. Use `!mydir/filename` to un-ignore **specific files** in its **root**.
+#   2. Use `!mydir/*` to un-ignore **all files** in its **root**,
+#      but NOT any sub-directories.
+#      - To un-ignore contents of sub-directories, you repeat this process,
+#        i.e. `!mydir/subdir/` followed by `!mydir/subdir/file-or-wildcard`
+# #############################################################################
+
+# Root-level files
 !.gitignore
 
+# Directories
+!_setup/
+!_setup/*
+# -----------------------------------------------------------------------------
 !alacritty/
 !alacritty/alacritty.toml
-
-!brew/
-!brew/*
-
+# -----------------------------------------------------------------------------
 !git/
 !git/ignore
-!git/base_config
-
+# -----------------------------------------------------------------------------
 !nvim/
 !nvim/*
 !nvim/lua/
@@ -28,24 +57,31 @@
 !nvim/lua/plugin/setup/*
 !nvim/lua/plugin/specs/
 !nvim/lua/plugin/specs/*
-
+# -----------------------------------------------------------------------------
 !skhd/
 !skhd/skhdrc
 !skhd/yabaimacro.sh
-
+# -----------------------------------------------------------------------------
+!ssh/
+!ssh/config
+# -----------------------------------------------------------------------------
 !tmux/
 !tmux/tmux.conf
-
+# -----------------------------------------------------------------------------
 !yabai/
 !yabai/yabairc
-
+# -----------------------------------------------------------------------------
 !zsh/
 !zsh/.zshrc
 !zsh/.zshenv
 !zsh/.zprofile
-!zsh/base_zshenv
+!zsh/.p10k.zsh
 
+# #############################################################################
+# STEP 3: Re-ignore unwanted stuff from patterns ending in `*` above.
+#
+# - This step looks like a normal gitignore.
+# #############################################################################
 
-# BLACKLIST
 .DS_Store
 node_modules

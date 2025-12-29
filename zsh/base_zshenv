@@ -1,3 +1,0 @@
-# Move this to `~/.zshenv`
-export ZDOTDIR="$HOME/.config/zsh"
-export DOCKER_DEFAULT_PLATFORM="linux/amd64"

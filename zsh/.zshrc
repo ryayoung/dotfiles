@@ -2,8 +2,12 @@
 # may require console input must go above this block; everything else may go below.
 source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 
-# export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.config/zsh/ohmyzsh"
 # source $ZSH/oh-my-zsh.sh
+export PATH="~/.local/bin:$PATH"
+
+# OPTIONS --------------------------------------------------------------------
+
 setopt alwaystoend
 setopt autocd
 setopt autopushd
@@ -20,18 +24,9 @@ setopt pushdignoredups
 setopt pushdminus
 setopt sharehistory
 
-# Lazy load pyenv
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/shims:$PATH"
-# function pyenv() {
-#     unset -f pyenv
-#     eval "$(command pyenv init -)"
-#     # eval "$(command pyenv virtualenv-init -)"
-#     pyenv $@
-# }
-export PATH="~/.local/bin:$PATH"
 
 # WIDGETS --------------------------------------------------------------------
+
 function tmux_navigate() {
     [[ -n $TMUX ]] && tmux select-pane -$1 >/dev/null 2>&1
 }
@@ -47,6 +42,7 @@ zle -N tmux_navigate_up
 zle -N tmux_navigate_right
 
 # BINDKEY ---------------------------------------------------------------------
+
 bindkey -v
 bindkey "^R" history-incremental-search-backward
 bindkey '^H' tmux_navigate_left
@@ -61,7 +57,6 @@ function autobal() {
 }
 
 # ALIASES ---------------------------------------------------------------------
-# OH MY ZSH ------------------------
 alias -- -='cd -'
 alias ...='../..'
 alias ....='../../..'
@@ -147,8 +142,8 @@ source <(fzf --zsh)
 
 
 # ZSH PLUGINS -----------------------------------------------------------------
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit .p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # This must be at the end
