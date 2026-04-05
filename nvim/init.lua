@@ -4,7 +4,7 @@ require("plugin.lazy")
 _G.PythonLSP = true
 _G.CSSLSP = false
 
-vim.o.shortmess = vim.o.shortmess .. 'I'
+vim.o.shortmess = vim.o.shortmess .. "I"
 
 vim.cmd("source ~/.config/nvim/lua/vim/run-python.vim")
 vim.cmd("source ~/.config/nvim/lua/vim/vim-core.vim")
@@ -13,9 +13,8 @@ require("core.set")
 require("core.map")
 
 if vim.g.neovide then
-    require("core.neovide")
+	require("core.neovide")
 end
-
 
 local function nlrf(keys, exec, options)
 	return vim.keymap.set("n", "<leader>." .. keys, exec .. "<CR>", options)
@@ -27,12 +26,43 @@ nlrf("set", ":e ~/.config/nvim/lua/core/set.lua")
 nlrf("lsp", ":e ~/.config/nvim/lua/plugin/setup/lspconfig.lua")
 nlrf("ini", ":e ~/.config/nvim/init.lua")
 
-
 vim.cmd([[ 
     autocmd!
     autocmd BufLeave * silent! wall
 ]])
 
 vim.diagnostic.config({
-    virtual_text=true,
+	virtual_text = true,
+})
+
+vim.filetype.add({
+	extension = {
+		harmony = "harmony",
+	},
+})
+
+vim.treesitter.language.add("harmony", {
+	path = vim.fn.expand("~/c/tree-sitter-harmony/parser.so"),
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
+		"python",
+		"rust",
+		"lua",
+		"gitignore",
+		"json",
+		"svelte",
+		"markdown",
+		"sql",
+		"html",
+		"css",
+		"typescript",
+		"c",
+		"cs",
+		"harmony",
+	},
+	callback = function()
+		vim.treesitter.start()
+	end,
 })

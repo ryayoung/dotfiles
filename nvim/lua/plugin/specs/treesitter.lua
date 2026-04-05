@@ -11,4 +11,9 @@ return {
             require("plugin.setup.treesitter")
         end,
     },
+    {
+        dir = vim.fn.expand("~/c/tree-sitter-harmony"),
+        name = "tree-sitter-harmony",
+        lazy = false,
+    }
 }
